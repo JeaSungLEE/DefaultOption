@@ -1,229 +1,303 @@
-disabled_rules:
-  - custom_rules
-  - discarded_notification_center_observer
-  - trailing_newline
-  - trailing_whitespace
-  - type_body_length
-  - empty_enum_arguments
-  - file_length
-  - function_body_length
-  - is_disjoint
-  - line_length
-  - multiple_closures_with_trailing_closure
-  - notification_center_detachment
-  - todo
-  - empty_count
-  - force_unwrapping
-  - implicitly_unwrapped_optional
-opt_in_rules:
-  - array_init
-  - closure_end_indentation
-  - closure_spacing
-  - contains_over_first_not_nil
-  - discouraged_optional_boolean
-#- explicit_type_interface
-  - fatal_error_message
-  - implicit_return
-  - implicitly_unwrapped_optional
-  - literal_expression_end_indentation
-  - multiline_parameters
-  - operator_usage_whitespace
-  - overridden_super_call
-  - override_in_extension
-  - pattern_matching_keywords
-  - prohibited_super_call
-  - redundant_nil_coalescing
-  - single_test_class
-  - sorted_first_last
-#- unneeded_parentheses_in_closure_argument
-  - vertical_parameter_alignment_on_call
-  - yoda_condition
-  - private_action
-  - private_outlet
-excluded:
-  - Pods
+disabled_rules: #사용하지 않는 룰
+    # 사용자 지정규칙 사용 https://realm.github.io/SwiftLint/custom_rules.html
+    - custom_rules
+    
+    # Boolean은 옵셔널을 사용하지 않도록 함 https://realm.github.io/SwiftLint/discouraged_optional_boolean.html
+    - discouraged_optional_boolean
+    
+    # collection은 옵셔널을 사용하지 않도록 함 https://realm.github.io/SwiftLint/discouraged_optional_collection.html
+    - discouraged_optional_collection
+    
+    # enum의 case이름은 겹치면 안됨 https://realm.github.io/SwiftLint/duplicate_enum_cases.html
+    - duplicate_enum_cases
+    
+    # xctest내용이 비어있으면 안된다 https://realm.github.io/SwiftLint/empty_xctest_method.html
+    - empty_xctest_method
+    
+    # 접근제어자를 필수로 입력해야한다. https://realm.github.io/SwiftLint/explicit_acl.html
+    - explicit_acl
+    
+    # enum의 raw값을 필수로 입력해야한다. https://realm.github.io/SwiftLint/explicit_enum_raw_value.html
+    - explicit_enum_raw_value
+    
+    # 최상위에 선언된 것들은 접근제어자를 붙여야 한다. https://realm.github.io/SwiftLint/explicit_top_level_acl.html
+    - explicit_top_level_acl
+    
+    # extension의 acess modifer를 사용하는것이 좋다 https://realm.github.io/SwiftLint/extension_access_modifier.html
+    - extension_access_modifier
+    
+    # fallthrough 대신 case를 붙여 사용합니다 https://realm.github.io/SwiftLint/fallthrough.html
+    - fallthrough
+    
+    # file header의 주석은 프로젝트의 주석 패턴과 일치해야합니다. https://realm.github.io/SwiftLint/file_header.html
+    - file_header
+    
+    # %대신에 명확한 isMultiple을 사용합니다 https://realm.github.io/SwiftLint/legacy_multiple.html
+    - legacy_multiple
+    
+    # let var 이후에 한줄의 공백이 필요합니다 https://realm.github.io/SwiftLint/let_var_whitespace.html
+    - let_var_whitespace
+    
+    # 두개이상의 클로저를 사용할땐 후행형태를 사용하지 않는다 https://realm.github.io/SwiftLint/multiple_closures_with_trailing_closure.html
+    - multiple_closures_with_trailing_closure
+    
+opt_in_rules: #사용하는 룰
+    #class only protocol에서 class대신 Anyobject사용 https://realm.github.io/SwiftLint/anyobject_protocol.html
+    - anyobject_protocol
+        
+    #map에서 $0만 사용하거나 element보단 $ 사용하도록 유도 https://realm.github.io/SwiftLint/array_init.html
+    - array_init
+    
+    #@objc, @IBoutlet 에 엔터키 안하고 바로 붙여쓰도록 함 https://realm.github.io/SwiftLint/attributes.html
+    - attributes
+    
+    #kvo 사용시 block형태로 사용 https://realm.github.io/SwiftLint/block_based_kvo.html
+    - block_based_kvo
+        
+    #Delegate생성시 class 채택하여 weak 사용하도록 함 https://realm.github.io/SwiftLint/class_delegate_protocol.html
+    - class_delegate_protocol
+    
+    #중괄호와 closure중간에 공간이 있으면 안됨 https://realm.github.io/SwiftLint/closing_brace.html
+    - closing_brace
+    
+    # 클로저 바디 길이 제한 기본 20 경고, 100 에러 https://realm.github.io/SwiftLint/closure_body_length.html
+    - closure_body_length
+    
+    #클로저 닫는 괄호는 시작위치와 같아야함 https://realm.github.io/SwiftLint/closure_end_indentation.html
+    - closure_end_indentation
+    
+    #클로저 파라미터는 시작과 같은 위치에 있어야한다. https://realm.github.io/SwiftLint/closure_parameter_position.html
+    - closure_parameter_position
+        
+    #클로저의 내용과 괄호사이엔 공백이 있어야합니다. https://realm.github.io/SwiftLint/closure_spacing.html
+    - closure_spacing
 
-block_based_kvo:
-  severity: warning
-class_delegate_protocol:
-  severity: error
-closing_brace:
-  severity: error
-closure_parameter_position:
-  severity: error
-colon:
-  severity: error
-comma:
-  severity: error
-compiler_protocol_init:
-  severity: error
-control_statement:
-  severity: error
-discouraged_direct_init:
-  severity: error
-dynamic_inline:
-  severity: error
-empty_parameters:
-  severity: error
-fallthrough:
-  severity: error
-generic_type_name:
-  severity: error
-identifier_name:
-  min_length:
-    warning: 2
-    error: 2
-  max_length:
-    warning: 60
-    error: 60
-implicit_getter:
-  severity: error
-large_tuple:
-  error: 4
-  warning: 4
-leading_whitespace:
-  severity: error
-legacy_cggeometry_functions:
-  severity: error
-legacy_constant:
-  severity: error
-legacy_constructor:
-  severity: error
-legacy_nsgeometry_functions:
-  severity: error
-nesting:
-  type_level:
-    warning: 6
-    error: 6
-  statement_level:
-    warning: 10
-    error: 10
-discouraged_optional_boolean:
-  severity: error
-opening_brace:
-  severity: error
-operator_whitespace:
-  severity: error
-private_over_fileprivate:
-  severity: error
-private_unit_test:
-  severity: error
-protocol_property_accessors_order:
-  severity: error
-redundant_discardable_let:
-  severity: error
-redundant_optional_initialization:
-  severity: error
-redundant_void_return:
-  severity: error
-return_arrow_whitespace:
-  severity: error
-shorthand_operators:
-  severity: error
-statement_position:
-  severity: error
-superfluous_disable_command:
-  severity: error
-switch_case_alignment:
-  severity: error
-syntactic_sugar:
-  severity: error
-trailing_comma:
-  severity: error
-trailing_semicolon:
-  severity: error
-type_name:
-  min_length: 0
-  max_length:
-    warning: 60
-    error: 60
-unneeded_break_in_switch:
-  severity: error
-unused_closure_parameter:
-  severity: error
-unused_enumerated:
-  severity: error
-valid_ibinspectable:
-  severity: error
-vertical_parameter_alignment:
-  severity: error
-vertical_whitespace:
-  severity: error
-void_return:
-  severity: error
-weak_delegate:
-  severity: error
-xctfail_message:
-  severity: error
-cyclomatic_complexity:
-  error: 50
-  warning: 40
-empty_parentheses_with_trailing_closure:
-  severity: error
-for_where:
-  severity: error
-force_cast:
-  severity: error
-force_try:
-  severity: error
-function_parameter_count:
-  error: 5
-  warning: 5
-mark:
-  severity: error
-redundant_string_enum_value:
-  severity: error
-unused_optional_binding:
-  severity: error
-array_init:
-  severity: error
-closure_end_indentation:
-  severity: error
-closure_spacing:
-  severity: error
-contains_over_first_not_nil:
-  severity: error
-#explicit_type_interface:
-#  severity: error
-#  excluded:
-#    - local
-fatal_error_message:
-  severity: error
-implicit_return:
-  severity: error
-implicitly_unwrapped_optional:
-  severity: error
-literal_expression_end_indentation:
-  severity: error
-multiline_parameters:
-  severity: error
-operator_usage_whitespace:
-  severity: error
-overridden_super_call:
-  severity: error
-override_in_extension:
-  severity: error
-pattern_matching_keywords:
-  severity: error
-prohibited_super_call:
-  severity: error
-redundant_nil_coalescing:
-  severity: error
-single_test_class:
-  severity: error
-sorted_first_last:
-  severity: error
-#unneeded_parentheses_in_closure_argument:
-#  severity: error
-vertical_parameter_alignment_on_call:
-  severity: error
-yoda_condition:
-  severity: error
-force_unwrapping:
-  severity: error
-private_action:
-  severity: error
-private_outlet:
-  severity: error
+    # if 문에서 리턴을 할경우 바로 return을 쓰면 안됨 https://realm.github.io/SwiftLint/conditional_returns_on_newline.html
+    - conditional_returns_on_newline
+    
+    #collection들의 버티컬 위치가 일치해야합니다 https://realm.github.io/SwiftLint/collection_alignment.html
+    - collection_alignment
+    
+    #colon 사용시 앞에는 여백이 없고 뒤에는 공백이 있어야합니다. https://realm.github.io/SwiftLint/colon.html
+    - colon
+        
+    #comma 앞에는 여백이 없고 뒤에는 공백이 있어야합니다. https://realm.github.io/SwiftLint/comma.html
+    - comma #new
+    
+    #ExpressibleByArrayLiteral를 생성할때 린트 https://realm.github.io/SwiftLint/compiler_protocol_init.html
+    - compiler_protocol_init
+    
+    #filter.count를 사용할때 0을 포함하면 안됨 contain을 사용하자 https://realm.github.io/SwiftLint/contains_over_filter_count.html
+    - contains_over_filter_count
+    
+    #filter.count를 사용할때 empty를 사용하면 안됨 contain을 사용하자 https://realm.github.io/SwiftLint/contains_over_filter_is_empty.html
+    - contains_over_filter_is_empty
+    
+    #first를 사용하고 != nil체크를 하지말고 contain을 사용하자 https://realm.github.io/SwiftLint/contains_over_first_not_nil.html
+    - contains_over_first_not_nil
+    
+    #range를 사용하고 nil체크를 하지말고 contain을 사용하자 https://realm.github.io/SwiftLint/contains_over_range_nil_comparison.html
+    - contains_over_range_nil_comparison
+    
+    #if, for, guard, switch, while, and catch 뒤에 () 사용하지 않음 https://realm.github.io/SwiftLint/control_statement.html
+    - control_statement
+    
+    #static변수만 가지고 있을 경우 enum타입으로 만들고 상속받은경우 class를 사용하도록 함 https://realm.github.io/SwiftLint/convenience_type.html
+    - convenience_type
+    
+    #함수안은 복잡하면 안된다 https://realm.github.io/SwiftLint/cyclomatic_complexity.html
+    - cyclomatic_complexity
+    
+    #deployment target보다 낮은버전의 @available사용시 경고 표시 https://realm.github.io/SwiftLint/deployment_target.html
+    - deployment_target
+
+    #옵저버를 블록에서 등록할때 나중에 해제하기 위해 변수로 저장해야함 https://realm.github.io/SwiftLint/discarded_notification_center_observer.html
+    - discarded_notification_center_observer
+    
+    # uidevice, bundle같은경우는 생성하지않고 사용하도록함 https://realm.github.io/SwiftLint/discouraged_direct_init.html
+    - discouraged_direct_init
+    
+    # image, color liternaldl 아닌 named로 사용하도록 함 https://realm.github.io/SwiftLint/discouraged_object_literal.html
+    - discouraged_object_literal
+    
+    # 중복 import 방지 https://realm.github.io/SwiftLint/duplicate_imports.html
+    - duplicate_imports
+    
+    # dynamic과 inline은 같은 라인에 있어야함 https://realm.github.io/SwiftLint/dynamic_inline.html
+    - dynamic_inline
+
+    # count > 0 대신 isEmpty사용 https://realm.github.io/SwiftLint/empty_count.html
+    - empty_count
+    
+    # 빈 collection체크시에는 .isEmpty 사용 https://realm.github.io/SwiftLint/empty_collection_literal.html
+    - empty_collection_literal
+    
+    # enum의 아규먼트가 없을경우 비운다 https://realm.github.io/SwiftLint/empty_enum_arguments.html
+    - empty_enum_arguments
+    
+    # void -> 대신 () -> 사용한다 https://realm.github.io/SwiftLint/empty_parameters.html
+    - empty_parameters
+    
+    # 클로저의 파라미터가 없을경우 ()를 작성하지 않는다 https://realm.github.io/SwiftLint/empty_parentheses_with_trailing_closure.html
+    - empty_parentheses_with_trailing_closure
+    
+    # string 빈문자열 체크시 "" 대신 isempty를 사용한다 https://realm.github.io/SwiftLint/empty_string.html
+    - empty_string
+    
+    # case의 파리미터갯수가 5개 이하여야 한다 https://realm.github.io/SwiftLint/enum_case_associated_values_count.html
+    - enum_case_associated_values_count
+    
+    # 만료된 todo일경우 에러 https://realm.github.io/SwiftLint/expiring_todo.html
+    - expiring_todo
+    
+    # 프로퍼티의 타입을 명시해야합니다. https://realm.github.io/SwiftLint/explicit_type_interface.html
+    - explicit_type_interface
+    
+    # flatmap과 같은 고차함수에선 .init만 해도 $0, $1이 입력이 되니 init($1)과 같이 사용하지 말자 https://realm.github.io/SwiftLint/explicit_init.html
+    - explicit_init
+    
+    # 함수안에서 변수에 접근할땐 self를 붙여야한다 https://realm.github.io/SwiftLint/explicit_self.html
+    - explicit_self
+    
+    # fatal error는 메세지가 있어야합니다 https://realm.github.io/SwiftLint/fatal_error_message.html
+    - fatal_error_message
+    
+    # 파일 길이가 길면 안됩니다. https://realm.github.io/SwiftLint/file_length.html
+    - file_length
+    
+    # file이름이 파일안의 extension이나 타입과 일치해야합니다. https://realm.github.io/SwiftLint/file_name.html
+    - file_name
+    
+    # file이름엔 공백이 있으면 안됩니다. https://realm.github.io/SwiftLint/file_name_no_space.html
+    - file_name_no_space
+    
+    # file내부의 정렬순서를 강제합니다. protocol class 순 https://realm.github.io/SwiftLint/file_types_order.html
+    - file_types_order
+    
+    # filter.first보단 .first(where:)를 사용하도록 합니다. (속도향상) https://realm.github.io/SwiftLint/first_where.html
+    - first_where
+    
+    # map과 reduce([],+)보단 flatmap을 사용하도록 합니다. (속도향상) https://realm.github.io/SwiftLint/flatmap_over_map_reduce.html
+    - flatmap_over_map_reduce
+    
+    # for문안에 if대신 where을 사용합니다. https://realm.github.io/SwiftLint/for_where.html
+    - for_where
+    
+    # force cast를 하지 않습니다 https://realm.github.io/SwiftLint/force_cast.html
+    - force_cast
+    
+    # force try를 하지 않습니다. https://realm.github.io/SwiftLint/force_try.html
+    - force_try
+    
+    # force unwrapping을 하지 않습니다. https://realm.github.io/SwiftLint/force_unwrapping.html
+    - force_unwrapping
+    
+    # 함수의 길이는 길지 않아야 합니다. 근데 테스트 스펙에서 걸림.. https://realm.github.io/SwiftLint/function_body_length.html
+    - function_body_length
+    
+    # 파라미터에 기본값이 있는 친구들이 뒤로 갑니다. https://realm.github.io/SwiftLint/function_default_parameter_at_end.html
+    - function_default_parameter_at_end
+    
+    # 함수의 파라미터 갯수를 제한합니다. https://realm.github.io/SwiftLint/function_parameter_count.html
+    - function_parameter_count
+    
+    # 제너릭의 타입이름은 영어와 숫자만 표현하며 20자 이하여야 합니다. https://realm.github.io/SwiftLint/generic_type_name.html
+    - generic_type_name
+    
+    # 같은걸 비교하면 안됩니다. https://realm.github.io/SwiftLint/identical_operands.html
+    - identical_operands
+    
+    # 변수나 클래스등 이름은 소문자, 대문자로 시작하며 너무길거나 짧으면 안됩니다. https://realm.github.io/SwiftLint/identifier_name.html
+    - identifier_name
+    
+    # getter를 명시적으로 적을 필요가 없는경우 생략하고 작성합니다 https://realm.github.io/SwiftLint/implicit_getter.html
+    - implicit_getter
+    
+    # return을 사용하지 않아도 되는곳에선 return을 쓰지 않는다 https://realm.github.io/SwiftLint/implicit_return.html
+    - implicit_return
+    
+    # 변수 선언시 ! 로 선언하지 않습니다 https://realm.github.io/SwiftLint/implicitly_unwrapped_optional.html
+    - implicitly_unwrapped_optional
+
+    # 탭을 필요없이 두번이상 하지 않습니다 https://realm.github.io/SwiftLint/indentation_width.html
+    - indentation_width
+    
+    # defer를 필요할때만 사용합니다 https://realm.github.io/SwiftLint/inert_defer.html
+    - inert_defer
+    
+    # intersection(_:).isEmpty 대신에 isDisjoint를 사용합니다 https://realm.github.io/SwiftLint/is_disjoint.html
+    - is_disjoint
+    
+    # joined(↓separator: "") 기본값일 경우 joint()로 사용합니다 https://realm.github.io/SwiftLint/joined_default_parameter.html
+    - joined_default_parameter
+    
+    # tuple의 갯수를 제한합니다 https://realm.github.io/SwiftLint/large_tuple.html
+    - large_tuple
+    
+    # .filter { }.last대신 .last(where:)를 사용합니다 https://realm.github.io/SwiftLint/last_where.html
+    - last_where
+    
+    # 파일 시작부분에 빈공간을 사용하지 않습니다 https://realm.github.io/SwiftLint/leading_whitespace.html
+    - leading_whitespace
+    
+    # cgrect를 사용하지 않습니다 https://realm.github.io/SwiftLint/legacy_cggeometry_functions.html
+    - legacy_cggeometry_functions
+    
+    # 예전스타일의 전역변수를 사용하지 않습니다 https://realm.github.io/SwiftLint/legacy_constant.html
+    - legacy_constant
+    
+    # 예전스타일의 간편함수를 사용하지 않습니다 https://realm.github.io/SwiftLint/legacy_constructor.html
+    - legacy_constructor
+    
+    # hashValue대신 hash(into:)를 사용합니다 https://realm.github.io/SwiftLint/legacy_hashing.html
+    - legacy_hashing
+    
+    # 오래된 NSGeometry 함수들을 사용하지 않습니다 https://realm.github.io/SwiftLint/legacy_nsgeometry_functions.html
+    - legacy_nsgeometry_functions
+    
+    # 예전스타일 랜덤 함수를 사용하지 않습니다 https://realm.github.io/SwiftLint/legacy_random.html
+    - legacy_random
+    
+    # 리터럴들을 표현할때 인덴트가 일치해야합니다 https://realm.github.io/SwiftLint/literal_expression_end_indentation.html
+    - literal_expression_end_indentation
+    
+    # line의 길이를 제한합니다 https://realm.github.io/SwiftLint/line_length.html
+    - line_length
+    
+    # 하위의 접근제어는 상위의 접근제어보다 낮아야 합니다 (같아도 안됨) https://realm.github.io/SwiftLint/lower_acl_than_parent.html
+    - lower_acl_than_parent
+    
+    # Mark는 정확한 형식을 사용해야합니다. https://realm.github.io/SwiftLint/mark.html
+    - mark
+    
+    # open과 public에는 문서를 작성해야합니다. https://realm.github.io/SwiftLint/missing_docs.html
+    - missing_docs
+    
+    # modifier들은 순서를 가집니다 https://realm.github.io/SwiftLint/modifier_order.html
+    - modifier_order
+    
+    # 아규먼트들은 한줄에 있거나 각각따로 있어야 합니다 https://realm.github.io/SwiftLint/multiline_arguments.html
+    - multiline_arguments
+    
+    # 아규먼트 괄호도 한줄에 있거나 각각따로 있어야 합니다 https://realm.github.io/SwiftLint/multiline_arguments_brackets.html
+    - multiline_arguments_brackets
+    
+    # 함수 체이닝도 한줄에 있거나 따로 있어야 합니다 https://realm.github.io/SwiftLint/multiline_function_chains.html
+    - multiline_function_chains
+    
+    # 리터럴 괄호도 한줄에 있거나 따로 있어야 합니다. https://realm.github.io/SwiftLint/multiline_literal_brackets.html
+    - multiline_literal_brackets
+    
+    # 파라미터들도 한줄에 있거나 따로 있어야 합니다. https://realm.github.io/SwiftLint/multiline_parameters.html
+    - multiline_parameters
+    
+    # 파라미터 괄호도 한줄에있거나 따로 있어야 합니다.  https://realm.github.io/SwiftLint/multiline_parameters_brackets.html
+    - multiline_parameters_brackets
+    
+    
+included: #린트룰을 적용할 폴더
+
+excluded: #린트룰을 적용하지 않을 폴더, 파일
+    - Pods
 
 reporter: "xcode"
