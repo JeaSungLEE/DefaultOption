@@ -26,11 +26,7 @@ DerivedData
 Pods/
 
 # Carthage
-Carthage/Checkouts
-Carthage/Build/Mac
-Carthage/Build/tvOS
-Carthage/Build/watchOS
-Carthage/Build/iOS/*.bcsymbolmap
+Carthage/
 
 # Fastlane
 fastlane/report.xml
