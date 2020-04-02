@@ -1,3 +1,6 @@
+
+git rm -r --cached .
+
 # SwiftInit
 
 # swiftlint
