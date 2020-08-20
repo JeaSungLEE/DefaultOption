@@ -6,6 +6,8 @@ disabled_rules: #사용하지 않는 룰
     # if 문에서 리턴을 할경우 바로 return을 쓰면 안됨 https://realm.github.io/SwiftLint/conditional_returns_on_newline.html
     - conditional_returns_on_newline
     
+    # 함수 체이닝도 한줄에 있거나 따로 있어야 합니다 https://realm.github.io/SwiftLint/multiline_function_chains.html
+    - multiline_function_chains #new
 
     # 아규먼트 괄호도 한줄에 있거나 각각따로 있어야 합니다 https://realm.github.io/SwiftLint/multiline_arguments_brackets.html
     - multiline_arguments_brackets #new
@@ -21,6 +23,9 @@ disabled_rules: #사용하지 않는 룰
     
     # 사용자 지정규칙 사용 https://realm.github.io/SwiftLint/custom_rules.html
     - custom_rules
+    
+    #옵저버를 블록에서 등록할때 나중에 해제하기 위해 변수로 저장해야함 https://realm.github.io/SwiftLint/discarded_notification_center_observer.html
+    - discarded_notification_center_observer
     
     # Boolean은 옵셔널을 사용하지 않도록 함 https://realm.github.io/SwiftLint/discouraged_optional_boolean.html
     - discouraged_optional_boolean
@@ -51,6 +56,12 @@ disabled_rules: #사용하지 않는 룰
     
     # extension의 acess modifer를 사용하는것이 좋다?? 이해가 안되었습니다 .. ㅠ https://realm.github.io/SwiftLint/extension_access_modifier.html
     - extension_access_modifier # new
+    
+    # force unwrapping을 하지 않습니다. https://realm.github.io/SwiftLint/force_unwrapping.html
+    - force_unwrapping
+    
+    # force cast를 하지 않습니다 https://realm.github.io/SwiftLint/force_cast.html
+    - force_cast
     
     # fallthrough 대신 case를 붙여 사용합니다 https://realm.github.io/SwiftLint/fallthrough.html
     - fallthrough # new
@@ -106,6 +117,9 @@ disabled_rules: #사용하지 않는 룰
     # file의 맨 마지막에는 newline이 있어야합니다. https://realm.github.io/SwiftLint/trailing_newline.html
     - trailing_newline
     
+    # line의 마지막에는 빈 여백이 있으면 안됩니다. https://realm.github.io/SwiftLint/trailing_whitespace.html
+    - trailing_whitespace # new
+    
     # type body의 길이가 길면 안됩니다. 200자  https://realm.github.io/SwiftLint/type_body_length.html
     - type_body_length
     
@@ -131,8 +145,6 @@ opt_in_rules: #사용하는 룰
     # todo는 반드시 해결해야 합니다. https://realm.github.io/SwiftLint/todo.html
     - todo
     
-    # force unwrapping을 하지 않습니다. https://realm.github.io/SwiftLint/force_unwrapping.html
-    - force_unwrapping
 
     # 클로저 바디 길이 제한 기본 20 경고, 100 에러 https://realm.github.io/SwiftLint/closure_body_length.html
     - closure_body_length
@@ -206,9 +218,6 @@ opt_in_rules: #사용하는 룰
     #deployment target보다 낮은버전의 @available사용시 경고 표시 https://realm.github.io/SwiftLint/deployment_target.html
     - deployment_target
     
-    #옵저버를 블록에서 등록할때 나중에 해제하기 위해 변수로 저장해야함 https://realm.github.io/SwiftLint/discarded_notification_center_observer.html
-    - discarded_notification_center_observer
-    
     # uidevice, bundle같은경우는 생성하지않고 사용하도록함 https://realm.github.io/SwiftLint/discouraged_direct_init.html
     - discouraged_direct_init
     
@@ -268,9 +277,6 @@ opt_in_rules: #사용하는 룰
     
     # for문안에 if대신 where을 사용합니다. https://realm.github.io/SwiftLint/for_where.html
     - for_where
-    
-    # force cast를 하지 않습니다 https://realm.github.io/SwiftLint/force_cast.html
-    - force_cast
     
     # force try를 하지 않습니다. https://realm.github.io/SwiftLint/force_try.html
     - force_try
@@ -349,9 +355,6 @@ opt_in_rules: #사용하는 룰
 
     # 아규먼트들은 한줄에 있거나 각각따로 있어야 합니다 https://realm.github.io/SwiftLint/multiline_arguments.html
     - multiline_arguments #new
-
-    # 함수 체이닝도 한줄에 있거나 따로 있어야 합니다 https://realm.github.io/SwiftLint/multiline_function_chains.html
-    - multiline_function_chains #new
 
     # 파라미터들도 한줄에 있거나 따로 있어야 합니다. https://realm.github.io/SwiftLint/multiline_parameters.html
     - multiline_parameters
@@ -491,9 +494,6 @@ opt_in_rules: #사용하는 룰
     # semicolon 앞에 공간이 있으면 안됩니다. https://realm.github.io/SwiftLint/trailing_semicolon.html
     - trailing_semicolon # new
     
-    # line의 마지막에는 빈 여백이 있으면 안됩니다. https://realm.github.io/SwiftLint/trailing_whitespace.html
-    - trailing_whitespace # new
-    
     # type의 이름 길이를 제한합니다. 0글자 이상 60글자 이하 https://realm.github.io/SwiftLint/type_name.html
     - type_name # new
     
@@ -557,5 +557,3 @@ opt_in_rules: #사용하는 룰
     # 비교 할대 변수는 왼쪽 상수는 오른쪽에 있어야 합니다. https://realm.github.io/SwiftLint/yoda_condition.html
     - yoda_condition
 reporter: "xcode"
-
-# - 제작 Jercy - 
