@@ -556,6 +556,7 @@ opt_in_rules: #사용하는 룰
     # 비교 할대 변수는 왼쪽 상수는 오른쪽에 있어야 합니다. https://realm.github.io/SwiftLint/yoda_condition.html
     - yoda_condition
     
+# Options
 type_body_length:
   warning: 200 # warning
   error: 400 # error
@@ -565,4 +566,5 @@ file_length:
 function_body_length:
   warning: 20
   error: 40
+  
 reporter: "xcode"
