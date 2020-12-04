@@ -18,7 +18,7 @@ disabled_rules: #사용하지 않는 룰
     # 파라미터 괄호도 한줄에있거나 따로 있어야 합니다.  https://realm.github.io/SwiftLint/multiline_parameters_brackets.html
     - multiline_parameters_brackets # new
     
-    #클로저 닫는 괄호는 시작위치와 같아야함 https://realm.github.io/SwiftLint/closure_end_indentation.html
+    # 클로저 닫는 괄호는 시작위치와 같아야함 https://realm.github.io/SwiftLint/closure_end_indentation.html
     - closure_end_indentation
     
     # 사용자 지정규칙 사용 https://realm.github.io/SwiftLint/custom_rules.html
@@ -120,9 +120,6 @@ disabled_rules: #사용하지 않는 룰
     # line의 마지막에는 빈 여백이 있으면 안됩니다. https://realm.github.io/SwiftLint/trailing_whitespace.html
     - trailing_whitespace # new
     
-    # type body의 길이가 길면 안됩니다. 200자  https://realm.github.io/SwiftLint/type_body_length.html
-    - type_body_length
-    
     # type안의 순서를 강제합니다. case, type alias, ioboutlet, initialize, func... https://realm.github.io/SwiftLint/type_contents_order.html
     - type_contents_order
     
@@ -144,7 +141,6 @@ disabled_rules: #사용하지 않는 룰
 opt_in_rules: #사용하는 룰
     # todo는 반드시 해결해야 합니다. https://realm.github.io/SwiftLint/todo.html
     - todo
-    
 
     # 클로저 바디 길이 제한 기본 20 경고, 100 에러 https://realm.github.io/SwiftLint/closure_body_length.html
     - closure_body_length
@@ -157,6 +153,9 @@ opt_in_rules: #사용하는 룰
 
     # super를 콜해야하는경우 super를 콜해야합니다. https://realm.github.io/SwiftLint/overridden_super_call.html
     - overridden_super_call
+    
+    # type body의 길이가 길면 안됩니다. 200자  https://realm.github.io/SwiftLint/type_body_length.html
+    - type_body_length
 
     #class only protocol에서 class대신 Anyobject사용 https://realm.github.io/SwiftLint/anyobject_protocol.html
     - anyobject_protocol
@@ -556,4 +555,14 @@ opt_in_rules: #사용하는 룰
     
     # 비교 할대 변수는 왼쪽 상수는 오른쪽에 있어야 합니다. https://realm.github.io/SwiftLint/yoda_condition.html
     - yoda_condition
+    
+type_body_length:
+  warning: 200 # warning
+  error: 400 # error
+file_length:
+  warning: 300
+  error: 600
+function_body_length:
+  warning: 20
+  error: 40
 reporter: "xcode"
