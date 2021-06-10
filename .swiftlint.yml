@@ -117,6 +117,9 @@ disabled_rules: #사용하지 않는 룰
     # iboutlet은 strong으로 선언합니다. https://realm.github.io/SwiftLint/strong_iboutlet.html
     - strong_iboutlet # new
     
+    # 후위클로저를 사용가능할때는 후위클로저를 사용합니다. https://realm.github.io/SwiftLint/trailing_closure.html
+    - trailing_closure # new
+    
     # file의 맨 마지막에는 newline이 있어야합니다. https://realm.github.io/SwiftLint/trailing_newline.html
     - trailing_newline
     
@@ -483,9 +486,6 @@ opt_in_rules: #사용하는 룰
     
     # someBool = !someBool.대신에 toggle()을 활용합니다.
     - toggle_bool # new
-    
-    # 후위클로저를 사용가능할때는 후위클로저를 사용합니다. https://realm.github.io/SwiftLint/trailing_closure.html
-    - trailing_closure # new
     
     # 딕셔너리나 배열의 마지막에 ,를 넣지 않습니다. https://realm.github.io/SwiftLint/trailing_comma.html
     - trailing_comma # new
