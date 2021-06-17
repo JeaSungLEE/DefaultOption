@@ -547,9 +547,6 @@ opt_in_rules: #사용하는 룰
     # delegate는 weak로 합니다. https://realm.github.io/SwiftLint/weak_delegate.html
     - weak_delegate # new
     
-    # XCTAssertEqual보다는 true같은게 가능하다면 XCTAssertTrue, xct_specific_matcher를 사용합니다. https://realm.github.io/SwiftLint/xct_specific_matcher.html
-    - XCTAssertTrue # new
-    
     # xctfail에는 메세지가 있어야 합니다. https://realm.github.io/SwiftLint/xctfail_message.html
     - xctfail_message # new
     
